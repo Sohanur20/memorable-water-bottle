@@ -7,7 +7,7 @@ import { addToLs, getStorageCart } from "../utilitis/localStorage";
 const Battles = () => {
 
     const [bottles, setBottles] = useState([]);
-    const [selectCard , setSelectedCart] = useState([])
+    const [selectCard, setSelectedCart] = useState([])
 
     useEffect(() => {
         fetch('Battle.json')
@@ -19,21 +19,38 @@ const Battles = () => {
 
     // load card from local storage
 
-    useEffect(() =>{
+    useEffect(() => {
 
-if (bottles.length ) {
-    const storedCart = getStorageCart()
-    console.log(storedCart , bottles)
-}
-       
-    },[bottles])
+        if (bottles.length) {
+            const storedCart = getStorageCart()
+            console.log(storedCart, bottles)
 
-    const bottleHandle = (battle) =>{
+            const savedCart = []
+
+            for (const id of savedCart) {
+                console.log(id)
+                const bottle = bottles.find(bottle => bottle.id === id);
+
+                if (bottle) {
+                    savedCart.push(bottle)
+                }
+            }
+            // console.log('saved cart', savedCart)
+            setSelectedCart(savedCart)
+        }
+
+    }, [bottles])
+
+
+
+
+
+    const bottleHandle = (battle) => {
 
         // বুঝিয়ে নিতে হবে
-      const newCard = [...selectCard , battle];
-      setSelectedCart(newCard)
-      addToLs(battle.id)
+        const newCard = [...selectCard, battle];
+        setSelectedCart(newCard)
+        addToLs(battle.id)
     }
 
     return (
