@@ -1,0 +1,22 @@
+
+.bottle{
+
+    border: 2px solid seagreen;
+    padding: 50px 20px;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+.bottle img{
+    width: 300px;
+    border-radius: 20px;
+}
+
+.bottle button{
+    background: goldenrod;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
